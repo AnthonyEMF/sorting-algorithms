@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sections.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/insercion.css">
+    <title>Inserción</title>
+</head>
+<body>
+    <!-- Contenedor del NavBar -->
+    <div class="container-navbar">
+        <div class="navbar">
+            <div class="izquierda">
+                <a href="/index.html"><img src="/img/home.png" alt="img"></a>
+                <a href="https://github.com/AnthonyEMF" target="_blank"><img src="/img/github.png" alt="img"></a>
+            </div>
+            <!-- Menu de botones -->
+            <div class="derecha">
+                <a href="/menu/burbuja.html">Burbuja</a>
+                <a href="/menu/insercion.html">Inserción</a>
+                <a href="/menu/seleccion.html">Selección</a>
+                <a href="/menu/mergesort.html">MergeSort</a>
+                <a href="/menu/quicksort.html">QuickSort</a>
+            </div>
+        </div>
+    </div>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <div class="contenido">
+            <!-- Encabezado -->
+            <div class="header">
+                <div class="container-titulo">
+                    <h1>Algoritmo de Inserción</h1>
+                </div>
+            </div>
+            <hr>
+            <!-- Informacion -->
+            <div class="informacion">
+                <p>El algoritmo de inserción en programación es un método de ordenamiento que 
+                    funciona tomando un elemento a la vez e insertándolo en la posición correcta en la parte ordenada 
+                    de la lista, desplazando los elementos mayores hacia la derecha para hacer espacio. Este proceso 
+                    se repite hasta que todos los elementos estén en su lugar.</p>
+                <h2>Ventajas:</h2>
+                <ul>
+                    <li><b>Sencillez:</b> Es fácil de visualizar y explicar.</li>
+                    <li><b>Estable:</b> Preserva el orden de elementos iguales.</li>
+                    <li><b>Bajo uso de memoria:</b> Solo requiere una cantidad constante de memoria adicional.</li>
+                </ul>
+                <h2>Desventajas:</h2>
+                <ul>
+                    <li><b>Muchos intercambios:</b> Esto puede ser un problema para algunos tipos de datos.</li>
+                    <li><b>Ineficiencia:</b> Lento para conjuntos de datos grandes.</li>
+                    <li><b>Comparaciones innecesarias:</b> Realiza muchas comparaciones innecesarias.</li>
+                </ul>
+            </div>
+            <!-- Demostracion -->
+            <hr>
+            <div class="instrucciones">
+                <h2 id="titulo-demostracion">Demostración del Algoritmo</h2>
+                <h3>Instrucciones:</h3> 
+                <p>
+                    <b>1.</b> Ingresar valores numéricos del 1 al 20.<br>
+                    <b>2.</b> Se necesitan por lo menos 3 valores para poder ser ordenados.<br>
+                    <b>3.</b> Presione "Aleatorio" para generar valores al azar.<br>
+                    <b>4.</b> Cada valor se enlista en una serie de recuadros en la parte inferior.<br>
+                    <b>5.</b> El elemento tomado y que está siendo ordenado se muestra en la parte superior de color rojo.<br>
+                    <b>6.</b> Presione "Ordenar" para ejecutar el algoritmo y ordenar los valores de forma ascendente.<br>
+                    <b>7.</b> Presione "Limpiar" para borrar todos los recuadros.
+                </p>
+            </div>
+            <!-- Interfaz -->
+            <div class="interfaz">
+                <input type="number" id="input-datos" placeholder="Ingresar numeros...">
+                <button id="btn-agregar">Agregar</button>
+                <button id="btn-aleatorio">Aleatorio</button>
+                <div class="demostracion">
+                    <div id="visualizacion">
+                        <div class="container-superior"><!-- Generado mediante JavaScript --></div>
+                        <div class="container-inferior"><!-- Generado mediante JavaScript --></div>
+                    </div>
+                </div>
+                <button id="btn-ordenar" class="btn-disabled" disabled>Ordenar</button>
+                <button id="btn-limpiar" class="btn-disabled" disabled>Limpiar</button>
+            </div>
+            <!-- Codigo -->
+            <hr>
+            <h2>Código:</h2>
+            <div class="codigo">
+                <div class="container-codigo">
+<pre><code id="text-codigo">function algoritmoInsercion(arreglo){
+    for(let i=1; i < arreglo.length; i++){
+        let valorActual = arreglo[i];
+        let j = i-1;
+        while(j >= 0 && arreglo[j] > valorActual){
+            arreglo[j+1] = arreglo[j];
+            j--;
+        }
+        arreglo[j+1] = valorActual;
+    }
+    return arreglo;
+}</code></pre>
+                </div>
+            </div>
+            <button id="btn-copiar">Copiar</button>
+        </div>
+    </div>
+    <!-- Enlace al archivo JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/insercion.js"></script>
+</body>
+</html>

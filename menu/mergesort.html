@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sections.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mergesort.css">
+    <title>MergeSort</title>
+</head>
+<body>
+    <!-- Contenedor del NavBar -->
+    <div class="container-navbar">
+        <div class="navbar">
+            <div class="izquierda">
+                <a href="/index.html"><img src="/img/home.png" alt="img"></a>
+                <a href="https://github.com/AnthonyEMF" target="_blank"><img src="/img/github.png" alt="img"></a>
+            </div>
+            <!-- Menu de botones -->
+            <div class="derecha">
+                <a href="/menu/burbuja.html">Burbuja</a>
+                <a href="/menu/insercion.html">Inserción</a>
+                <a href="/menu/seleccion.html">Selección</a>
+                <a href="/menu/mergesort.html">MergeSort</a>
+                <a href="/menu/quicksort.html">QuickSort</a>
+            </div>
+        </div>
+    </div>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <div class="contenido">
+            <!-- Encabezado -->
+            <div class="header">
+                <div class="container-titulo">
+                    <h1>Algoritmo MergeSort</h1>
+                </div>
+            </div>
+            <hr>
+            <!-- Informacion -->
+            <div class="informacion">
+                <p>MergeSort es un algoritmo de ordenamiento eficiente que utiliza la técnica de "dividir y conquistar", 
+                    consiste en dividir repetidamente la lista original en mitades hasta que cada sublista tenga un 
+                    solo elemento, luego fusiona esas sublistas de manera ordenada. La clave de MergeSort es la 
+                    operación de fusión, donde combina dos sublistas ordenadas en una única lista ordenada.</p>
+                <h2>Ventajas:</h2>
+                <ul>
+                    <li><b>Eficiencia:</b> Muy eficiente para ordenar conjuntos de datos de cualquier tamaño y desordenados.</li>
+                    <li><b>Muy estable:</b> Conserva el orden relativo de los elementos con claves iguales.</li>
+                    <li><b>Bajo uso de memoria:</b> Eficiente en términos de uso de memoria auxiliar.</li>
+                </ul>
+                <h2>Desventajas:</h2>
+                <ul>
+                    <li><b>Inadaptable:</b> No puede aprovechar la información sobre la distribución de los datos.</li>
+                    <li><b>Lentitud:</b> Lento para conjuntos de datos muy grandes.</li>
+                    <li><b>Muchos intercambios:</b> Realiza muchos intercambios de elementos.</li>
+                </ul>
+            </div>
+            <!-- Demostracion -->
+            <hr>
+            <div class="instrucciones">
+                <h2 id="titulo-demostracion">Demostración del Algoritmo</h2>
+                <h3>Instrucciones:</h3> 
+                <p>
+                    <b>1.</b> Ingresar valores numéricos del 1 al 10.<br>
+                    <b>2.</b> Se necesitan por lo menos 3 valores para poder ser ordenados.<br>
+                    <b>3.</b> Presione "Aleatorio" para generar valores al azar.<br>
+                    <b>4.</b> Cada valor corresponde al tamaño de las barras en el gráfico.<br>
+                    <b>5.</b> Cuando las barras se colorean de verde significa que han sido ordenadas.<br>
+                    <b>6.</b> Presione "Ordenar" para ejecutar el algoritmo y ordenar los valores de forma ascendente.<br>
+                    <b>7.</b> Presione "Limpiar" para borrar el gráfico.
+                </p>
+            </div>
+            <!-- Interfaz -->
+            <div class="interfaz">
+                <input type="number" id="input-datos" placeholder="Ingresar numeros...">
+                <button id="btn-agregar">Agregar</button>
+                <button id="btn-aleatorio">Aleatorio</button>
+                <div class="demostracion">
+                    <div id="visualizacion"><!-- Generado mediante JavaScript --></div>
+                </div>
+                <button id="btn-ordenar" class="btn-disabled" disabled>Ordenar</button>
+                <button id="btn-limpiar" class="btn-disabled" disabled>Limpiar</button>
+            </div>
+            <!-- Codigo -->
+            <hr>
+            <h2>Código:</h2>
+            <div class="codigo">
+                <div class="container-codigo">
+<pre><code id="text-codigo">function mergeSort(arreglo){
+    if(arreglo.length <= 1){
+        return arreglo;
+    }
+    const medio = Math.floor(arreglo.length / 2);  
+    const izquierda = arreglo.slice(0, medio);
+    const derecha = arreglo.slice(medio);
+    const izqOrdenado = mergeSort(izquierda);
+    const derOrdenado = mergeSort(derecha);
+        
+    return merge(izqOrdenado, derOrdenado);
+}
+          
+function merge(izquierda, derecha){
+    let resultado = [];
+    let izqIndex = 0;
+    let derIndex = 0;
+          
+    while(izqIndex < izquierda.length && derIndex < derecha.length){
+        if(izquierda[izqIndex] < derecha[derIndex]){
+            resultado.push(izquierda[izqIndex]);
+            izqIndex++;
+        }else{
+            resultado.push(derecha[derIndex]);
+            derIndex++;
+        }
+    }
+    while(izqIndex < izquierda.length){
+        resultado.push(izquierda[izqIndex]);
+            izqIndex++;
+    }
+    while(derIndex < derecha.length){
+        resultado.push(derecha[derIndex]);
+        derIndex++;
+    }  
+    return resultado;
+}</code></pre>
+                </div>
+            </div>
+            <button id="btn-copiar">Copiar</button>
+        </div>
+    </div>
+    <!-- Enlace al archivo JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/mergesort.js"></script>
+</body>
+</html>

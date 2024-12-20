@@ -1,0 +1,27 @@
+/* Contenedor donde se genera el grafico de barras */
+#visualizacion{
+    display: flex;
+    align-items: flex-end;
+    height: 310px;
+    width: 60%;
+    background-color: #ccc;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 0 4px;
+    padding-right: 3px;
+}
+
+/* Estilo para cada barra del grafico */
+.bar{
+    width: 70px;
+    margin: 0 2px;
+    transition: height 0.2s;
+    color: white;
+    background-color: dodgerblue;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}

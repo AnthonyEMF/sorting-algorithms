@@ -1,0 +1,29 @@
+/* Contenedor de la demostracion */
+#visualizacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+    width: 60%;
+    background-color: #ccc;
+    border-top: 0;
+    border-bottom: 0;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 0 2px;
+}
+
+/* Estilo para los recuadros del grafico */
+.recuadro{
+    width: 60px;
+    height: 60px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    font-size: 18px;
+}
